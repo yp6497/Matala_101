@@ -18,7 +18,7 @@ import static android.graphics.Color.WHITE;
  * @author   Yulia Piavka <yp6497@bs.amalnet.k12.il>
  * @version    1.1
  * @since    13/11/2020
- * short description-
+ * short description- n
  */
 public class MainActivity extends AppCompatActivity {
 
