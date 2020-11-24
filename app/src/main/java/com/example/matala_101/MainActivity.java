@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.Random;
@@ -16,10 +18,11 @@ import static android.graphics.Color.RED;
 import static android.graphics.Color.WHITE;
 
 /**
- * @author   Yulia Piavka <yp6497@bs.amalnet.k12.il>
- * @version    1.1
- * @since    13/11/2020
- * short description- nmjj
+ * The type Main activity.
+ *
+ * @author Yulia Piavka <yp6497@bs.amalnet.k12.il>
+ * @version 1.1
+ * @since 13 /11/2020 short description- 5 buttons with a little explanation. every button does something different.
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -40,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
     public void onlyMes(View view) {
 
         AlertDialog.Builder adb;
-        adb= new AlertDialog.Builder(this);
+        adb = new AlertDialog.Builder(this);
         adb.setTitle("only text");
-        adb.setMessage("you cant do anything bitch");
+        adb.setMessage("hi");
 
-        AlertDialog ad= adb.create();
+        AlertDialog ad = adb.create();
         ad.show();
 
     }
@@ -56,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
     public void noBwI(View view) {
 
         AlertDialog.Builder adb;
-        adb= new AlertDialog.Builder(this);
+        adb = new AlertDialog.Builder(this);
         adb.setTitle("only text with icon");
-        adb.setMessage("you cant do anything bitch");
+        adb.setMessage("hi");
         adb.setIcon(R.drawable.androidlogo);
 
-        AlertDialog ad= adb.create();
+        AlertDialog ad = adb.create();
         ad.show();
     }
 
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     public void oneB(View view) {
 
         AlertDialog.Builder adb;
-        adb= new AlertDialog.Builder(this);
+        adb = new AlertDialog.Builder(this);
         adb.setTitle("one button");
         adb.setMessage("you have one option:");
         adb.setIcon(R.drawable.androidlogo);
@@ -84,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        AlertDialog ad= adb.create();
+        AlertDialog ad = adb.create();
         ad.show();
     }
 
@@ -95,9 +98,9 @@ public class MainActivity extends AppCompatActivity {
     public void twoB(View view) {
 
         AlertDialog.Builder adb;
-        adb= new AlertDialog.Builder(this);
+        adb = new AlertDialog.Builder(this);
         adb.setTitle("only text");
-        adb.setMessage("you cant do anything bitch");
+        adb.setMessage("hi");
         adb.setPositiveButton("c", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        AlertDialog ad= adb.create();
+        AlertDialog ad = adb.create();
         ad.show();
     }
 
@@ -125,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     public void threeB(View view) {
 
         AlertDialog.Builder adb;
-        adb= new AlertDialog.Builder(this);
+        adb = new AlertDialog.Builder(this);
         adb.setTitle("only text");
         adb.setMessage("you cant do anything bitch");
 
@@ -160,12 +163,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        AlertDialog ad= adb.create();
+        AlertDialog ad = adb.create();
         ad.show();
     }
 
-    public void creditsActivity(View view) {
-        Intent si= new Intent(this, creditsActivity.class);
-        startActivity(si);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        menu.add("Credits");
+        return true;
+    }
+
+    /**
+     * description- if "credits" selected: goes to the credits activity.
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        String st = item.getTitle().toString();
+
+        if (st.endsWith("Credits")) {
+            Intent si = new Intent(this, creditsActivity.class);
+            startActivity(si);
+        }
+        return true;
     }
 }
