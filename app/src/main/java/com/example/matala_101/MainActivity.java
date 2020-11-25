@@ -45,11 +45,10 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder adb;
         adb = new AlertDialog.Builder(this);
         adb.setTitle("only text");
-        adb.setMessage("hi");
+        adb.setMessage("This is a simple alert");
 
         AlertDialog ad = adb.create();
         ad.show();
-
     }
 
     /**
@@ -60,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder adb;
         adb = new AlertDialog.Builder(this);
-        adb.setTitle("only text with icon");
-        adb.setMessage("hi");
+        adb.setTitle("text with icon");
+        adb.setMessage("This is a simple alert with icon");
         adb.setIcon(R.drawable.androidlogo);
 
         AlertDialog ad = adb.create();
@@ -77,16 +76,14 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder adb;
         adb = new AlertDialog.Builder(this);
         adb.setTitle("one button");
-        adb.setMessage("you have one option:");
+        adb.setMessage("This is a one button alert");
         adb.setIcon(R.drawable.androidlogo);
-        adb.setNegativeButton("saionara", new DialogInterface.OnClickListener() {
+        adb.setNegativeButton("close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
-
             }
         });
-
         AlertDialog ad = adb.create();
         ad.show();
     }
@@ -99,18 +96,17 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder adb;
         adb = new AlertDialog.Builder(this);
-        adb.setTitle("only text");
-        adb.setMessage("hi");
-        adb.setPositiveButton("c", new DialogInterface.OnClickListener() {
+        adb.setTitle("two buttons");
+        adb.setMessage("This is a two button's alert");
+        adb.setPositiveButton("change", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Random rnd = new Random();
                 int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                 layout.setBackgroundColor(color);
-
             }
         });
-        adb.setNegativeButton("saionara", new DialogInterface.OnClickListener() {
+        adb.setNegativeButton("close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -129,23 +125,22 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder adb;
         adb = new AlertDialog.Builder(this);
-        adb.setTitle("only text");
-        adb.setMessage("you cant do anything bitch");
+        adb.setTitle("three buttons");
+        adb.setMessage("This is a three button's alert");
 
         /**
          * changes the color background randomly.
          */
-        adb.setPositiveButton("p", new DialogInterface.OnClickListener() {
+        adb.setPositiveButton("change", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Random rnd = new Random();
                 int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                 layout.setBackgroundColor(color);
-
             }
         });
 
-        adb.setNegativeButton("bye", new DialogInterface.OnClickListener() {
+        adb.setNegativeButton("close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -155,14 +150,12 @@ public class MainActivity extends AppCompatActivity {
         /**
          * setts the color background to white.
          */
-        adb.setNeutralButton("n", new DialogInterface.OnClickListener() {
+        adb.setNeutralButton("default", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 layout.setBackgroundColor(WHITE);
-
             }
         });
-
         AlertDialog ad = adb.create();
         ad.show();
     }
